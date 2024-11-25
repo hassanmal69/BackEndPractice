@@ -1,0 +1,35 @@
+import express from "express";
+const app = express();
+app.get("/", (req, res) => {
+  res.send("server is running from hassan");
+});
+app.get("/api/jokes", (req, res) => {
+  const jokesArray = [
+    {
+      id: 1,
+      joke: "Why don't skeletons fight each other? They don't have the guts.",
+    },
+    {
+      id: 2,
+      joke: "I'm reading a book on anti-gravity. It's impossible to put down!",
+    },
+    {
+      id: 3,
+      joke: "What do you call fake spaghetti? An impasta!",
+    },
+    {
+      id: 4,
+      joke: "Why did the scarecrow win an award? Because he was outstanding in his field!",
+    },
+    {
+      id: 5,
+      joke: "What do you get if you cross a snowman and a vampire? Frostbite.",
+    },
+  ];
+
+  res.send(jokesArray);
+});
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`server listening on ${port}`);
+});
